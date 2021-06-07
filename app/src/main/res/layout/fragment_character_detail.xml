@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar_main"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/coinImageView"
+        android:layout_width="@dimen/dimen_250"
+        android:layout_height="@dimen/dimen_250"
+        android:layout_marginTop="@dimen/dimen_8"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        tools:src="@color/yellow" />
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/addToFavoritesButton"
+        android:layout_width="@dimen/dimen_50"
+        android:layout_height="@dimen/dimen_50"
+        android:layout_marginTop="@dimen/dimen_8"
+        android:background="@color/light_gray"
+        android:src="@drawable/ic_baseline_star_outline_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/coinImageView"
+        app:layout_constraintTop_toBottomOf="@id/toolbar" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/dimen_8"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/coinImageView"
+        app:layout_constraintVertical_bias="1.0">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/hashingAlgorithmTextView"
+            style="@style/CoinDetailInfoTextStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Hashing Algorithm" />
+
+        <ScrollView
+            android:id="@+id/descriptionScrollView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dimen_8"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/hashingAlgorithmTextView">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/descriptionTextView"
+                style="@style/CoinDetailInfoTextStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="0dp"
+                android:ellipsize="none"
+                android:lines="4"
+                android:scrollbars="vertical"
+                android:singleLine="false"
+                tools:text="asdsafadasfdfasfasdasfdafasdasfasdafdasfasdasfdafasadasdsafaasdsa" />
+
+        </ScrollView>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/currentPriceTextView"
+            style="@style/CoinDetailInfoTextStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/descriptionScrollView"
+            tools:text="Current Price" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/priceChangeTextView"
+            style="@style/CoinDetailInfoTextStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/currentPriceTextView"
+            tools:text="Price Change" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/updateIntervalEditText"
+            style="@style/EditTextStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dimen_8"
+            android:hint="@string/coin_detail_fragment_interval_hint"
+            android:inputType="number"
+            app:layout_constraintEnd_toStartOf="@id/updateIntervalButton"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/priceChangeTextView" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/updateIntervalButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dimen_8"
+            android:text="@string/coin_detail_fragment_interval_button_text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/updateIntervalEditText"
+            app:layout_constraintTop_toBottomOf="@+id/priceChangeTextView" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

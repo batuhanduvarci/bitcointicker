@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.Toolbar
+    android:id="@+id/rootToolbar"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dimen_56"
+    android:background="@color/design_default_color_primary"
+    app:contentInsetEnd="@dimen/dimen_0"
+    app:contentInsetStart="@dimen/dimen_0">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/toolbarBackButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_baseline_arrow_back_24"
+        android:layout_marginStart="@dimen/dimen_16" />
+    
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/toolbarTitleTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="Title"
+        android:layout_marginStart="@dimen/dimen_16"
+        style="@style/ToolbarTitleStyle" />
+
+    <SearchView
+        android:id="@+id/toolbarSearchView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:searchIcon="@drawable/ic_baseline_search_24"
+        android:closeIcon="@drawable/ic_baseline_close_24"
+        android:focusable="true"
+        android:visibility="gone"
+        android:theme="@style/SearchViewStyle"/>
+
+</androidx.appcompat.widget.Toolbar>

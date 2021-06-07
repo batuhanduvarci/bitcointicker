@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">BitconTicker</string>
+
+    <string name="coin_list_fragment_toolbar_title">Coin List</string>
+
+    <string name="login_fragment_email_hint">E-mail</string>
+    <string name="login_fragment_password_hint">Password</string>
+    <string name="login_fragment_login_button_text">Login</string>
+    <string name="login_fragment_divider_text">OR</string>
+    <string name="login_fragment_guest_button_text">Continue as Guest</string>
+
+    <string name="coin_detail_fragment_hashing_algorithm_text">Hashing Algorithm : %s</string>
+    <string name="coin_detail_fragment_description_text">Description : %s</string>
+    <string name="coin_detail_fragment_current_price_text">Current Price : %s USD (Update Interval Set at : %s USD)</string>
+    <string name="coin_detail_fragment_price_change_text">Price Change : %s</string>
+    <string name="coin_detail_fragment_interval_hint">Seconds</string>
+    <string name="coin_detail_fragment_interval_button_text">Set Update Interval</string>
+
+    <string name="toolbar_search_text">This item is already added to favorites</string>
+</resources>
