@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.text.method.ScrollingMovementMethod
 import android.view.*
 import android.widget.Toast
-import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.*
 import com.bumptech.glide.Glide
 import com.example.bitcointicker.R
 import com.example.bitcointicker.common.constants.BundleConstants
@@ -24,7 +24,7 @@ import java.util.concurrent.TimeUnit
 import kotlin.math.abs
 
 @AndroidEntryPoint
-class CoinDetailFragment : BTFragment<FragmentCharacterDetailBinding>() {
+class CoinDetailFragment : BTFragment<FragmentCharacterDetailBinding>(), LifecycleObserver {
 
     private lateinit var coinDetailViewModel: CoinDetailViewModel
     private var coinId: String? = null
@@ -39,6 +39,7 @@ class CoinDetailFragment : BTFragment<FragmentCharacterDetailBinding>() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        ProcessLifecycleOwner.get().lifecycle.addObserver(this)
         coinDetailViewModel = ViewModelProvider(this).get(CoinDetailViewModel::class.java)
         arguments?.let {
             coinId = it.getString(BundleConstants.BUNDLE_COIN_ID)
@@ -98,6 +99,10 @@ class CoinDetailFragment : BTFragment<FragmentCharacterDetailBinding>() {
                 ).show()
             }
         })
+
+        coinDetailViewModel.price.observe(viewLifecycleOwner, {
+            //TODO price güncellenecek
+        })
     }
 
     private fun getCoin(id: String){
@@ -149,5 +154,18 @@ class CoinDetailFragment : BTFragment<FragmentCharacterDetailBinding>() {
     override fun onDestroyView() {
         backgroundExecuter.shutdown()
         super.onDestroyView()
+    }
+
+    @OnLifecycleEvent(Lifecycle.Event.ON_STOP)
+    private fun onBackground(){
+        coinId?.let {
+            coinDetailViewModel.initWorker(requireContext(), viewLifecycleOwner, it)
+        }
+    }
+
+    @OnLifecycleEvent(Lifecycle.Event.ON_START)
+    private fun onForeground(){
+        coinDetailViewModel = ViewModelProvider(this).get(CoinDetailViewModel::class.java)
+        coinDetailViewModel.disableWorker(requireContext())
     }
 }
