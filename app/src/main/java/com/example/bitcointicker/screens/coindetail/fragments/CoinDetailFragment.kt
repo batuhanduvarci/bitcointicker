@@ -101,7 +101,7 @@ class CoinDetailFragment : BTFragment<FragmentCharacterDetailBinding>(), Lifecyc
         })
 
         coinDetailViewModel.price.observe(viewLifecycleOwner, {
-            //TODO price güncellenecek
+            binding.currentPriceTextView.text = getString(R.string.coin_detail_fragment_current_price_text, it)
         })
     }
 
@@ -129,8 +129,10 @@ class CoinDetailFragment : BTFragment<FragmentCharacterDetailBinding>(), Lifecyc
         }
         binding.descriptionTextView.movementMethod = ScrollingMovementMethod()
         binding.descriptionTextView.text = getString(R.string.coin_detail_fragment_description_text, model.description.en)
-        binding.currentPriceTextView.text = getString(R.string.coin_detail_fragment_current_price_text, model.marketData.currentPrice.usd.toString(), currentPriceBeforeUpdateInterval.toString())
+        binding.currentPriceTextView.text = getString(R.string.coin_detail_fragment_current_price_text, model.marketData.currentPrice.usd.toString())
         binding.currentPriceTextView.isSelected = true
+        binding.updatePriceTextView.text = getString(R.string.coin_detail_fragment_update_set_price_text, currentPriceBeforeUpdateInterval.toString())
+        binding.updatePriceTextView.isSelected = true
         if (model.marketData.changePercentage.usd < 0){
             binding.priceChangeTextView.setTextColor(resources.getColor(R.color.red, requireActivity().theme))
         }else if (model.marketData.changePercentage.usd >= 0) {
@@ -145,10 +147,6 @@ class CoinDetailFragment : BTFragment<FragmentCharacterDetailBinding>(), Lifecyc
                 getCoin(it)
             }
         }, 0, seconds, TimeUnit.SECONDS)
-    }
-
-    companion object{
-        const val COIN_DETAIL_FRAGMENT = "COIN_DETAIL_FRAGMENT"
     }
 
     override fun onDestroyView() {
@@ -167,5 +165,9 @@ class CoinDetailFragment : BTFragment<FragmentCharacterDetailBinding>(), Lifecyc
     private fun onForeground(){
         coinDetailViewModel = ViewModelProvider(this).get(CoinDetailViewModel::class.java)
         coinDetailViewModel.disableWorker(requireContext())
+    }
+
+    companion object{
+        const val COIN_DETAIL_FRAGMENT = "COIN_DETAIL_FRAGMENT"
     }
 }

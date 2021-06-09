@@ -78,14 +78,33 @@
         </ScrollView>
 
         <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/currentPriceTextView"
+            android:id="@+id/currentPriceLabel"
             style="@style/CoinDetailInfoTextStyle"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/descriptionScrollView"
+            android:text="@string/coin_detail_fragment_current_price_label"
             tools:text="Current Price" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/currentPriceTextView"
+            style="@style/CoinDetailInfoTextStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/currentPriceLabel"
+            app:layout_constraintTop_toBottomOf="@+id/descriptionScrollView"
+            tools:text="Current Price" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/updatePriceTextView"
+            style="@style/CoinDetailInfoTextStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/currentPriceTextView"
+            app:layout_constraintTop_toBottomOf="@+id/descriptionScrollView"
+            tools:text="Update Interval Set at Price" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/priceChangeTextView"

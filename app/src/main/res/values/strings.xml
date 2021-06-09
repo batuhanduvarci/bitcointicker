@@ -11,7 +11,9 @@
 
     <string name="coin_detail_fragment_hashing_algorithm_text">Hashing Algorithm : %s</string>
     <string name="coin_detail_fragment_description_text">Description : %s</string>
-    <string name="coin_detail_fragment_current_price_text">Current Price : %s USD (Update Interval Set at : %s USD)</string>
+    <string name="coin_detail_fragment_current_price_label">Current Price :</string>
+    <string name="coin_detail_fragment_current_price_text">%s USD</string>
+    <string name="coin_detail_fragment_update_set_price_text">Update Interval Set at : %s USD</string>
     <string name="coin_detail_fragment_price_change_text">Price Change : %s</string>
     <string name="coin_detail_fragment_interval_hint">Seconds</string>
     <string name="coin_detail_fragment_interval_button_text">Set Update Interval</string>
