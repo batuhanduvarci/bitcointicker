@@ -9,7 +9,7 @@ import com.bumptech.glide.Glide
 import com.example.bitcointicker.R
 import com.example.bitcointicker.common.constants.BundleConstants
 import com.example.bitcointicker.common.models.CoinDetailModel
-import com.example.bitcointicker.databinding.FragmentCharacterDetailBinding
+import com.example.bitcointicker.databinding.FragmentCoinDetailBinding
 import com.example.bitcointicker.presentation.extensions.hideLoading
 import com.example.bitcointicker.presentation.extensions.showLoading
 import com.example.bitcointicker.presentation.fragments.BTFragment
@@ -24,7 +24,7 @@ import java.util.concurrent.TimeUnit
 import kotlin.math.abs
 
 @AndroidEntryPoint
-class CoinDetailFragment : BTFragment<FragmentCharacterDetailBinding>(), LifecycleObserver {
+class CoinDetailFragment : BTFragment<FragmentCoinDetailBinding>(), LifecycleObserver {
 
     private lateinit var coinDetailViewModel: CoinDetailViewModel
     private var coinId: String? = null
@@ -35,7 +35,7 @@ class CoinDetailFragment : BTFragment<FragmentCharacterDetailBinding>(), Lifecyc
     override fun bind(
         inflater: LayoutInflater,
         viewGroup: ViewGroup?
-    ) = FragmentCharacterDetailBinding.inflate(layoutInflater, container, false)
+    ) = FragmentCoinDetailBinding.inflate(layoutInflater, container, false)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

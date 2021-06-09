@@ -1,6 +1,5 @@
 package com.example.bitcointicker.screens.coindetail.viewmodels
 
-import android.app.Service
 import android.content.Context
 import androidx.lifecycle.*
 import androidx.work.*

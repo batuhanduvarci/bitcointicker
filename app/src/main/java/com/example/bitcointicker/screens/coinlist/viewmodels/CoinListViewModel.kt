@@ -1,13 +1,11 @@
 package com.example.bitcointicker.screens.coinlist.viewmodels
 
-import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.bitcointicker.common.constants.ServiceConstants
 import com.example.bitcointicker.common.models.CoinModel
-import com.example.bitcointicker.screens.coindetail.viewmodels.CoinDetailViewModel
 import com.example.bitcointicker.service.ServiceInstance
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.ktx.firestore
